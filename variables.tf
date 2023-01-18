@@ -22,12 +22,6 @@ variable "workload_identity_pool_description" {
   default     = "Terraform Cloud Workload Identity"
 }
 
-variable "workload_identity_pool_provider_id" {
-  description = "Workload Identity Pool Provider"
-  type        = string
-  default     = "terraform-cloud"
-}
-
 variable "oidc_attributes_mapping" {
   description = "Maps attributes from authentication credentials issued by an external identity provider to Google Cloud attributes"
   type        = map(string)

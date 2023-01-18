@@ -5,6 +5,7 @@
 
 | Name | Version |
 |------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.0 |
 
 ## Providers
@@ -42,7 +43,6 @@ No modules.
 | <a name="input_workload_identity_pool_description"></a> [workload\_identity\_pool\_description](#input\_workload\_identity\_pool\_description) | Description of the workload identity pool | `string` | `"Terraform Cloud Workload Identity"` | no |
 | <a name="input_workload_identity_pool_display_name"></a> [workload\_identity\_pool\_display\_name](#input\_workload\_identity\_pool\_display\_name) | Display name of TFC Workload Identity Pool | `string` | `"Terraform Cloud"` | no |
 | <a name="input_workload_identity_pool_id"></a> [workload\_identity\_pool\_id](#input\_workload\_identity\_pool\_id) | Workload Identity Pool ID | `string` | `"terraform-cloud"` | no |
-| <a name="input_workload_identity_pool_provider_id"></a> [workload\_identity\_pool\_provider\_id](#input\_workload\_identity\_pool\_provider\_id) | Workload Identity Pool Provider | `string` | `"terraform-cloud"` | no |
 | <a name="input_workspaces"></a> [workspaces](#input\_workspaces) | Map of workspaces to allow access to. Workspace names are prefixes. | `map(list(string))` | n/a | yes |
 
 ## Outputs
