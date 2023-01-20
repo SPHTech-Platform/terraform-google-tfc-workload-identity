@@ -1,5 +1,18 @@
 # Terraform Modules Template
 
+## Workload Identity Pool Provider ID
+
+The ID is created with the format `<organization>-<workspace name>`. If the entire string
+is longer than 32 characters (GCP's limit), the name is truncated to become:
+
+```hcl
+locals {
+  k = "${organization}-${workspace_name}"
+
+  id = join("-", [substr(k, 0, 23), substr(sha512(k), 0, 8)])
+}
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
