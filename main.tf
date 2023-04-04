@@ -28,7 +28,7 @@ resource "google_iam_workload_identity_pool_provider" "workspaces" {
   workload_identity_pool_id          = google_iam_workload_identity_pool.tfc.workload_identity_pool_id
   workload_identity_pool_provider_id = each.key
 
-  display_name = join("/", [each.value.org, each.value.ws])
+  display_name = local.display_name[each.key]
   description  = "Organisation: ${each.value.org} Workspace: ${each.value.ws}"
   project      = var.project
 
