@@ -33,7 +33,7 @@ resource "google_iam_workload_identity_pool_provider" "workspaces" {
   project      = var.project
 
   attribute_mapping   = var.oidc_attributes_mapping
-  attribute_condition = "assertion.sub.startsWith(\"organization:${each.value.org}:project:${var.tfc_project_support_match}:workspace:${each.value.ws}\")"
+  attribute_condition = "assertion.sub.startsWith(\"organization:${each.value.org}:project:${each.value.proj}:workspace:${each.value.ws}\")"
 
   oidc {
     issuer_uri        = "https://app.terraform.io"

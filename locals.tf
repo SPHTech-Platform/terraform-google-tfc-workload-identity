@@ -1,7 +1,12 @@
 locals {
-  flattened_workspaces = merge(
-    [for org, workspaces in var.workspaces : { for ws in workspaces : "${org}-${ws}" => { org = org, ws = ws } }]...
-  )
+  flattened_workspaces = merge(flatten([for org, project in var.workspaces :
+    [for proj, workspace in project : { for ws in workspace : "${org}-${ws}" => {
+      org  = org
+      proj = proj
+      ws   = ws
+      }
+    }]
+  ])...)
 
   workspaces = { for k, ws in local.flattened_workspaces : length(k) > 32 ? join("-", [substr(k, 0, 23), substr(sha512(k), 0, 8)]) : k => ws }
 
