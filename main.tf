@@ -29,7 +29,7 @@ resource "google_iam_workload_identity_pool_provider" "workspaces" {
   workload_identity_pool_provider_id = each.key
 
   display_name = local.display_name[each.key]
-  description  = "Organisation: ${each.value.org} Workspace: ${each.value.ws}"
+  description  = "Organisation: ${each.value.org} Project: ${each.value.proj} Workspace: ${each.value.ws}"
   project      = var.project
 
   attribute_mapping   = var.oidc_attributes_mapping
