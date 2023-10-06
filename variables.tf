@@ -46,7 +46,7 @@ variable "allowed_audiences" {
 
 variable "workspaces" {
   description = "Map of workspaces to allow access to. Workspace names are prefixes."
-  type        = map(list(string))
+  type        = map(map(list(string)))
 }
 
 variable "create_all_service_account" {
