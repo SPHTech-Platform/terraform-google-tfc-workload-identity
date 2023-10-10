@@ -26,7 +26,7 @@ resource "google_iam_workload_identity_pool_provider" "workspaces" {
   for_each = local.workspaces
 
   workload_identity_pool_id          = google_iam_workload_identity_pool.tfc.workload_identity_pool_id
-  workload_identity_pool_provider_id = each.key
+  workload_identity_pool_provider_id = lower(replace(each.key, "/\\W|_|\\s/", "-"))
 
   display_name = local.display_name[each.key]
   description  = "Organisation: ${each.value.org} Project: ${each.value.proj} Workspace: ${each.value.ws}"
