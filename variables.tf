@@ -46,7 +46,7 @@ variable "allowed_audiences" {
 
 variable "workspaces" {
   description = "Map of workspaces to allow access to. Workspace names are prefixes."
-  type        = map(list(string))
+  type        = map(map(list(string)))
 }
 
 variable "create_all_service_account" {
@@ -71,10 +71,4 @@ variable "service_account_description" {
   description = "Description of the service account"
   type        = string
   default     = "Used by Terraform Cloud"
-}
-
-variable "tfc_project_support_match" {
-  description = "The key to use for Terraform Cloud Project matching in the subject key. This is to work around the module not support projects. You should set this to 'Default Project'"
-  type        = string
-  default     = "Default Project"
 }
